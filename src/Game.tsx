@@ -23,7 +23,12 @@ export const Game: React.FC<{ config: Phaser.Types.Core.GameConfig }> =
         // y increasing going down.
         return (
             <div id={hostElementId}>
-                <div id={`${hostElementId}-gui`} style={{position: "absolute"}}>
+                <div
+                    id={`${hostElementId}-gui`}
+                    style={{
+                        position: "absolute"
+                    }}
+                >
                     {children}
                 </div>
             </div>)
