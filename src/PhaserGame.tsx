@@ -4,13 +4,12 @@ import React, {useLayoutEffect} from "react"
 import * as Phaser from "phaser"
 
 export const PhaserGame: React.FC<{ config: Phaser.Types.Core.GameConfig, parentId?: string }> =
-    ( props) => {
-
+    (
+     props) => {
     const {config, parentId, children} = props
     useLayoutEffect(() => {
         new Phaser.Game({...config, parent: parentId})
-    })
-
+    },[])
     if(config.parent && config.parent !== parentId) {
         console.warn(`Phaser Config specifies a parent dom element
         that doesn't match the parentId prop passed into PhaserGame, this could cause the
