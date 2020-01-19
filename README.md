@@ -1,5 +1,11 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+# Reactified Phaser
+This project aims to be a template for a Phaser game leveraging React for it's GUI and
+MobX for it's state management.
+
+There is a simple `<Game>` component which takes a Phaser config object and an element id
+
 ## Available Scripts
 
 In the project directory, you can run:

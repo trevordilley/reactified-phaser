@@ -1,23 +1,16 @@
 import React, {useLayoutEffect} from "react"
 import * as Phaser from "phaser"
 
-export const Game: React.FC<{ config: Phaser.Types.Core.GameConfig, parentId?: string }> =
+export const Game: React.FC<{ config: Phaser.Types.Core.GameConfig }> =
     (props) => {
-        const {config, parentId, children} = props
+        const {config, children} = props
 
+        const hostElementId = 'game'
         // requires useLayoutEffect because this is where we attach the game
         // canvas to the DOM
         useLayoutEffect(() => {
-            new Phaser.Game({...config, parent: parentId})
+            new Phaser.Game({...config, parent: hostElementId})
         })
-
-        if (config.parent && config.parent !== parentId) {
-            console.warn(
-                `Phaser Config specifies a parent dom element
-        that doesn't match the parentId prop passed into PhaserGame, this could cause the
-        game canvas to render somewhere unexpected!`
-            )
-        }
 
         // The games (the `children` prop) GUI will render
         // as the first child and the game Canvas will be
@@ -29,8 +22,8 @@ export const Game: React.FC<{ config: Phaser.Types.Core.GameConfig, parentId?: s
         // top-left, with x increasing going right and
         // y increasing going down.
         return (
-            <div id={parentId}>
-                <div id={`${parentId}-gui`} style={{position: "absolute"}}>
+            <div id={hostElementId}>
+                <div id={`${hostElementId}-gui`} style={{position: "absolute"}}>
                     {children}
                 </div>
             </div>)

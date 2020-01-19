@@ -51,7 +51,6 @@ const App = () => {
         <div>
             <Game
                 config={config}
-                parentId={"game3"}
             >
                 <Gui/>
             </Game>
