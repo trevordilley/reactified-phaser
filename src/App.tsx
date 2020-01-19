@@ -5,6 +5,8 @@ import * as Phaser from "phaser"
 import {PhaserGame} from "./PhaserGame"
 
 let radius = 10
+let mousePos: Phaser.GameObjects.Text
+
 const update = (scene: Phaser.Scene) => {
     const circle = new Phaser.Geom.Circle(400, 300, 100);
     // @ts-ignore
@@ -17,7 +19,9 @@ const update = (scene: Phaser.Scene) => {
     graphics.fillCircleShape(circle);
 
     circle.radius = radius;
-
+    mousePos.x = scene.input.x
+    mousePos.y = scene.input.y
+    mousePos.text = `${scene.input.x}, ${scene.input.y}`
     graphics.fillStyle(0x0000ff);
     graphics.fillCircleShape(circle);
 }
@@ -25,6 +29,7 @@ const create = (scene: Phaser.Scene) => {
     const button =  scene.add.text(100,100, "Down", {fill: '#0f0'})
     button.setInteractive()
     button.on('pointerup',() => store.count -= 1)
+    mousePos = scene.add.text(0,0,"0,0",{fill: '#00f'})
 }
 
 const config: Phaser.Types.Core.GameConfig = {
@@ -42,8 +47,11 @@ const config: Phaser.Types.Core.GameConfig = {
 
 const App = () => {
     return (
-        <div className="App">
-            <PhaserGame config={config} parentId={"game3"}>
+        <div className="App" style={{marginLeft:200}}>
+            <PhaserGame
+                config={config}
+                parentId={"game3"}
+            >
                 <button onClick={() => {store.count += 1}}>Up </button>
                 <Display/>
             </PhaserGame>
