@@ -16,8 +16,10 @@ export const PhaserGame: React.FC<{ config: Phaser.Types.Core.GameConfig, parent
         game canvas to render somewhere unexpected!`)
     }
 
-    return <div>
-        <div id={parentId}/>
-        <div>{children}</div>
-    </div>
+    return (
+        <div id={parentId}>
+            <div style={{position:'absolute'}}>
+                {children}
+            </div>
+        </div>)
 }

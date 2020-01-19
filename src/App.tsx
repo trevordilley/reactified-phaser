@@ -47,7 +47,7 @@ const config: Phaser.Types.Core.GameConfig = {
 
 const App = () => {
     return (
-        <div className="App" style={{marginLeft:200}}>
+        <div>
             <PhaserGame
                 config={config}
                 parentId={"game3"}
@@ -60,7 +60,7 @@ const App = () => {
 }
 
 const Display = observer(() => {
-   return (<div>{store.count}</div>)
+   return (<div style={{color: 'white'}}>{store.count}</div>)
 })
 
 export default App
