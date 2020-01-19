@@ -2,7 +2,7 @@ import React from "react"
 import {store} from "./Store"
 import {observer} from "mobx-react-lite"
 import * as Phaser from "phaser"
-import {PhaserGame} from "./PhaserGame"
+import {Game} from "./Game"
 
 let radius = 10
 let mousePos: Phaser.GameObjects.Text
@@ -32,13 +32,12 @@ const create = (scene: Phaser.Scene) => {
 }
 
 const config: Phaser.Types.Core.GameConfig = {
-    title: "Overworld",
+    title: "Hello Game",
     width: 800,
     height: 600,
     type: Phaser.AUTO,
+    backgroundColor: "white",
     scene: {
-        preload: function() {
-        },
         create: function() { create(this as Phaser.Scene) },
         update: function() { update(this as Phaser.Scene)}
     }
@@ -47,19 +46,19 @@ const config: Phaser.Types.Core.GameConfig = {
 const App = () => {
     return (
         <div>
-            <PhaserGame
+            <Game
                 config={config}
                 parentId={"game3"}
             >
                 <button onClick={() => {store.count += 1}}>Up </button>
                 <Display/>
-            </PhaserGame>
+            </Game>
         </div>
     )
 }
 
 const Display = observer(() => {
-   return (<div style={{color: 'white'}}>{store.count}</div>)
+   return (<div>{store.count}</div>)
 })
 
 export default App
