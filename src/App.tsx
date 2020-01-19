@@ -1,26 +1,22 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, {useEffect} from "react"
+import "./App.css"
+import {createGame} from "./Game"
+import {store} from "./Store"
+import {observer} from "mobx-react-lite"
 
-const App: React.FC = () => {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+const App = () => {
+    useEffect(() => createGame("game"), [])
+    return (
+        <div className="App">
+            <button onClick={() => {store.count += 1}}>Up </button>
+            <Display/>
+        </div>
+    )
 }
 
-export default App;
+const Display = observer(() => {
+   return (<div>{store.count}</div>)
+})
+
+export default App
