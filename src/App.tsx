@@ -1,15 +1,17 @@
-import React from "react"
+import React from 'react'
 import {store} from "./Store"
 import {observer} from "mobx-react-lite"
 import * as Phaser from "phaser"
 import {PhaserGame} from "./PhaserGame"
+import {TextField, Typography} from "@material-ui/core"
+import Grid from "@material-ui/core/Grid"
 
 let radius = 10
 let mousePos: Phaser.GameObjects.Text
 const update = (scene: Phaser.Scene) => {
     mousePos.x = scene.input.x
     mousePos.y = scene.input.y
-    mousePos.text = `${scene.input.x}, ${scene.input.y}`
+    mousePos.text = `${store.someText}: ${scene.input.x}, ${scene.input.y}`
 }
 const create = (scene: Phaser.Scene) => {
     const button =  scene.add.text(100,100, "Down", {fill: '#0f0'})
@@ -46,20 +48,38 @@ const config: Phaser.Types.Core.GameConfig = {
 
 const App = () => {
     return (
-        <div>
             <PhaserGame
                 config={config}
                 parentId={"game3"}
             >
-                <button onClick={() => {store.count += 1}}>Up </button>
-                <Display/>
+               <div style={{width: config.width, height: config.height}}>
+                   <Gui/>
+               </div>
             </PhaserGame>
-        </div>
     )
 }
 
-const Display = observer(() => {
-   return (<div style={{color: 'white'}}>{store.count}</div>)
+const Gui = observer(() => {
+   return (
+       <div style={{color: 'white'}}>
+       <Grid container>
+           <Grid item xs={12}>
+               <TextField onChange={(event) => {
+                   store.someText = event.target.value
+               }} />
+           </Grid>
+           <Grid item md={3}><Typography >{store.someText}</Typography></Grid>
+           <Grid item md={3}><Typography >{store.someText}</Typography></Grid>
+           <Grid item md={3}><Typography >{store.someText}</Typography></Grid>
+           <Grid item md={3}><Typography >{store.someText}</Typography></Grid>
+           <Grid item md={3}><Typography >{store.someText}</Typography></Grid>
+           <Grid item md={3}><Typography >{store.someText}</Typography></Grid>
+           <Grid item md={3}><Typography >{store.someText}</Typography></Grid>
+           <Grid item md={3}><Typography >{store.someText}</Typography></Grid>
+           <Grid item md={3}><Typography >{store.someText}</Typography></Grid>
+       </Grid>
+       </div>
+   )
 })
 
 export default App
