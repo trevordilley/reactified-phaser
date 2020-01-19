@@ -4,7 +4,23 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 This project aims to be a template for a Phaser game leveraging React for it's GUI and
 MobX for it's state management.
 
-There is a simple `<Game>` component which takes a Phaser config object and an element id
+There is a simple `<Game>` component which takes a Phaser config object. The `children`
+of this component will be the games GUI. They render relative to `(0,0)` of the game
+canvas, and match the canvas coordinate system for screen space.
+
+This allows you to leverage Phaser for the game logic and rendering, and leverage
+react for the GUI elements.
+
+The bridge between Phaser and React is MobX, a state management library which greatly simplifies managing state in
+react apps and can be similarly leveraged as a place to consolidate state for the
+Phaser portion of the app as well.
+
+This template includes a minimal Phaser "game" that renders some circles, has
+a text element showing the position of the mouse, a React button which increments
+an integer (rendered from React) and an interactive bit of text rendered from Phaser.
+Clicking the React button and the Phaser text changes the value of the counter to
+demonstrate how the two systems can interact by simply sourcing from the same Store
+(where we keep state).
 
 ## Available Scripts
 
