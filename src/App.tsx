@@ -6,8 +6,16 @@ import {PhaserGame} from "./PhaserGame"
 
 let radius = 10
 let mousePos: Phaser.GameObjects.Text
-
 const update = (scene: Phaser.Scene) => {
+    mousePos.x = scene.input.x
+    mousePos.y = scene.input.y
+    mousePos.text = `${scene.input.x}, ${scene.input.y}`
+}
+const create = (scene: Phaser.Scene) => {
+    const button =  scene.add.text(100,100, "Down", {fill: '#0f0'})
+    button.setInteractive()
+    button.on('pointerup',() => store.count -= 1)
+    mousePos = scene.add.text(0,0,"0,0",{fill: '#00f'})
     const circle = new Phaser.Geom.Circle(400, 300, 100);
     // @ts-ignore
     const graphics = scene.add.graphics({ fillStyle: { color: 0xff0000 } });
@@ -19,17 +27,8 @@ const update = (scene: Phaser.Scene) => {
     graphics.fillCircleShape(circle);
 
     circle.radius = radius;
-    mousePos.x = scene.input.x
-    mousePos.y = scene.input.y
-    mousePos.text = `${scene.input.x}, ${scene.input.y}`
     graphics.fillStyle(0x0000ff);
     graphics.fillCircleShape(circle);
-}
-const create = (scene: Phaser.Scene) => {
-    const button =  scene.add.text(100,100, "Down", {fill: '#0f0'})
-    button.setInteractive()
-    button.on('pointerup',() => store.count -= 1)
-    mousePos = scene.add.text(0,0,"0,0",{fill: '#00f'})
 }
 
 const config: Phaser.Types.Core.GameConfig = {
