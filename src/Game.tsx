@@ -24,12 +24,32 @@ export const Game: React.FC<{ config: Phaser.Types.Core.GameConfig }> =
         return (
             <div id={hostElementId}>
                 <div
-                    id={`${hostElementId}-gui`}
+                    id={`${hostElementId}-gui-container`}
                     style={{
-                        position: "absolute"
+                        // Set origin (0,0) to match origin of
+                        // the game canvas
+                        position: "absolute",
+
+                        // So the gui respects the positioning
+                        // of the canvas
+                        width: config.width,
+                        height: config.height,
+
+                        // Allow click through this container
+                        // div
+                        pointerEvents: 'none'
                     }}
                 >
-                    {children}
+                    <div
+                        id={`${hostElementId}-gui`}
+                        style={{
+                        // The actual GUI, don't allow click through
+                        // (so Buttons and stuff actually capture the clicks)
+                        pointerEvents: 'auto'
+                    }}>
+                        {children}
+
+                    </div>
                 </div>
             </div>)
     }

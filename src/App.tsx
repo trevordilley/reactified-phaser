@@ -60,7 +60,11 @@ const App = () => {
 
 const Gui = observer(() => {
     return (
-        <div>
+        <div style={{
+            display: 'flex',
+            flexDirection: 'row',
+            justifyContent: 'space-between'
+        }}>
             <button onClick={() => store.count += 1 }>
                 Up
             </button>
