@@ -12,23 +12,23 @@ const update = (scene: Phaser.Scene) => {
     mousePos.text = `${scene.input.x}, ${scene.input.y}`
 }
 const create = (scene: Phaser.Scene) => {
-    const button =  scene.add.text(100,100, "Down", {fill: '#0f0'})
+    const button = scene.add.text(100, 100, "Down (Click me!)", {fill: "#0f0"})
     button.setInteractive()
-    button.on('pointerup',() => store.count -= 1)
-    mousePos = scene.add.text(0,0,"0,0",{fill: '#00f'})
-    const circle = new Phaser.Geom.Circle(400, 300, 100);
+    button.on("pointerup", () => store.count -= 1)
+    mousePos = scene.add.text(0, 0, "0,0", {fill: "#00f"})
+    const circle = new Phaser.Geom.Circle(400, 300, 100)
     // @ts-ignore
-    const graphics = scene.add.graphics({ fillStyle: { color: 0xff0000 } });
-    graphics.fillCircleShape(circle);
+    const graphics = scene.add.graphics({fillStyle: {color: 0xff0000}})
+    graphics.fillCircleShape(circle)
 
-    circle.diameter = circle.radius;
+    circle.diameter = circle.radius
 
-    graphics.fillStyle(0x00ff00);
-    graphics.fillCircleShape(circle);
+    graphics.fillStyle(0x00ff00)
+    graphics.fillCircleShape(circle)
 
-    circle.radius = radius;
-    graphics.fillStyle(0x0000ff);
-    graphics.fillCircleShape(circle);
+    circle.radius = radius
+    graphics.fillStyle(0x0000ff)
+    graphics.fillCircleShape(circle)
 }
 
 const config: Phaser.Types.Core.GameConfig = {
@@ -36,10 +36,13 @@ const config: Phaser.Types.Core.GameConfig = {
     width: 800,
     height: 600,
     type: Phaser.AUTO,
-    backgroundColor: "white",
     scene: {
-        create: function() { create(this as Phaser.Scene) },
-        update: function() { update(this as Phaser.Scene)}
+        create: function () {
+            create(this as Phaser.Scene)
+        },
+        update: function () {
+            update(this as Phaser.Scene)
+        }
     }
 }
 
@@ -50,15 +53,20 @@ const App = () => {
                 config={config}
                 parentId={"game3"}
             >
-                <button onClick={() => {store.count += 1}}>Up </button>
-                <Display/>
+                <Gui/>
             </Game>
         </div>
     )
 }
 
-const Display = observer(() => {
-   return (<div>{store.count}</div>)
+const Gui = observer(() => {
+    return (
+        <div>
+            <button onClick={() => store.count += 1 }>
+                Up
+            </button>
+            <div style={{color: "white"}}>{store.count}</div>
+        </div>)
 })
 
 export default App
