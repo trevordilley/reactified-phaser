@@ -22,6 +22,9 @@ Clicking the React button and the Phaser text changes the value of the counter t
 demonstrate how the two systems can interact by simply sourcing from the same Store
 (where we keep state).
 
+## TODO
+[] Handle multiple scenes
+
 ## Available Scripts
 
 In the project directory, you can run:
