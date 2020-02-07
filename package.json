@@ -1,45 +1,45 @@
 {
-  "name": "reactified-phaser",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.3.2",
-    "@testing-library/user-event": "^7.1.2",
-    "@types/jest": "^24.0.0",
-    "@types/lodash": "^4.14.149",
-    "@types/node": "^12.0.0",
-    "@types/react": "^16.9.0",
-    "@types/react-dom": "^16.9.0",
-    "lodash": "^4.17.15",
-    "mobx": "^5.15.2",
-    "mobx-react": "^6.1.5",
-    "mobx-react-lite": "^1.5.2",
-    "phaser": "^3.21.0",
-    "react": "^16.12.0",
-    "react-dom": "^16.12.0",
-    "react-scripts": "3.3.0",
-    "typescript": "~3.7.2"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": "react-app"
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
+    "name": "reactified-phaser",
+    "version": "0.0.0",
+    "description": "A simple way to add a Phaser game to your React app!",
+    "homepage": "https://github.com/trevordilley",
+    "keywords": [
+        "React",
+        "Phaser"
     ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  }
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/trevordilley/reactified-phaser"
+    },
+    "main": "dist/index.js",
+    "types": "dist/index.d.ts",
+    "license": "MIT",
+    "scripts": {
+        "build": "tsc"
+    },
+    "dependencies": {
+        "phaser": "^3.22.0",
+        "lodash": "4.17.15"
+    },
+    "peerDependencies": {
+        "react": "^16.0.0",
+        "react-dom": "^16.0.0"
+    },
+    "devDependencies": {
+        "@types/lodash": "^4.14.149",
+        "@types/react": "^16.9.19",
+        "@types/react-dom": "^16.9.5",
+        "babel-core": "^6.21.0",
+        "babel-loader": "^7.1.4",
+        "babel-preset-env": "^1.6.1",
+        "babel-preset-react": "^6.16.0",
+        "babel-preset-stage-0": "^6.24.1",
+        "path": "^0.12.7",
+        "prop-types": "^15.6.0",
+        "react": "^16.0.0",
+        "react-dom": "^16.0.0",
+        "typescript": "^3.7.5",
+        "webpack": "^4.5.0",
+        "webpack-cli": "^3.2.1"
+    }
 }
