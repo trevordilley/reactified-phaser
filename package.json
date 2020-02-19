@@ -18,12 +18,12 @@
         "build": "tsc"
     },
     "dependencies": {
-        "phaser": "^3.22.0",
-        "lodash": "4.17.15"
     },
     "peerDependencies": {
         "react": "^16.0.0",
-        "react-dom": "^16.0.0"
+        "react-dom": "^16.0.0",
+        "phaser": "^3.22.0",
+        "lodash": "4.17.15"
     },
     "devDependencies": {
         "@types/lodash": "^4.14.149",
@@ -40,6 +40,8 @@
         "react-dom": "^16.0.0",
         "typescript": "^3.7.5",
         "webpack": "^4.5.0",
-        "webpack-cli": "^3.2.1"
+        "webpack-cli": "^3.2.1",
+        "phaser": "^3.22.0",
+        "lodash": "4.17.15"
     }
 }
