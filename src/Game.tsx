@@ -88,5 +88,4 @@ class GameContainer extends Component<GameProps> {
 
     }
 }
-
 export default Game

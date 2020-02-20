@@ -1,4 +1,3 @@
-"use strict";
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
@@ -23,26 +22,25 @@ var __assign = (this && this.__assign) || function () {
     };
     return __assign.apply(this, arguments);
 };
-Object.defineProperty(exports, "__esModule", { value: true });
-var react_1 = require("react");
-var Phaser = require("phaser");
-var lodash = require("lodash");
+import React, { Component } from "react";
+import * as Phaser from "phaser";
+import * as lodash from "lodash";
 var hostElementId = "game";
 var Game = function (props) {
     var config = props.config, children = props.children;
-    return (react_1.default.createElement(react_1.default.Fragment, null,
-        react_1.default.createElement(GameGui, { config: config }, children),
-        react_1.default.createElement(GameContainer, { config: config })));
+    return (React.createElement(React.Fragment, null,
+        React.createElement(GameGui, { config: config }, children),
+        React.createElement(GameContainer, { config: config })));
 };
 var GameGui = function (props) {
     var config = props.config, children = props.children;
-    return (react_1.default.createElement("div", { id: hostElementId + "-gui-container", style: {
+    return (React.createElement("div", { id: hostElementId + "-gui-container", style: {
             position: "absolute",
             width: config.width,
             height: config.height,
             pointerEvents: "none"
         } },
-        react_1.default.createElement("div", { id: hostElementId + "-gui", style: {
+        React.createElement("div", { id: hostElementId + "-gui", style: {
                 pointerEvents: "auto",
                 border: "1px solid"
             } }, children)));
@@ -60,9 +58,9 @@ var GameContainer = (function (_super) {
         new Phaser.Game(__assign(__assign({}, config), { parent: hostElementId }));
     };
     GameContainer.prototype.render = function () {
-        return (react_1.default.createElement("div", { id: hostElementId }));
+        return (React.createElement("div", { id: hostElementId }));
     };
     return GameContainer;
-}(react_1.Component));
-exports.default = Game;
+}(Component));
+export default Game;
 //# sourceMappingURL=Game.js.map

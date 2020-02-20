@@ -1,5 +1,7 @@
-# jw-react-npm-boilerplate
+# Reactified Phaser!
 
-React Boilerplate Component for npm
+Embed a Phaser game in your React App! Leverage the power of React to make your games GUI! 
 
-Documentation and instructions on how to publish a React component to npm available at http://jasonwatmore.com/post/2018/04/14/react-npm-how-to-publish-a-react-component-to-npm
+The work to ensure React doesn't blow your game away on DOM updates has been done for you, 
+any child elements of the `<Game>` component have been styled to overlay your Game correctly. 
+
