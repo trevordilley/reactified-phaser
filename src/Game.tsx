@@ -48,8 +48,6 @@ const GameGui: React.FC<GameProps> = (props) => {
                     // The actual GUI, don't allow click through
                     // (so Buttons and stuff actually capture the clicks)
                     pointerEvents: "auto",
-
-                    border: "1px solid"
                 }}>
                 {children}
             </div>
@@ -59,8 +57,6 @@ const GameGui: React.FC<GameProps> = (props) => {
 
 class GameContainer extends Component<GameProps> {
 
-    // TODO: This should probably update if we change the
-    // any part of the actual config.
     shouldComponentUpdate(nextProps: GameProps, nextState: {}) {
         return !lodash.isEqual(this.props, nextProps)
     }
