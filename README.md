@@ -5,12 +5,12 @@ Embed a Phaser game in your React App! Leverage the power of React to make your 
 The work to ensure React doesn't blow your game away on DOM updates has been done for you, 
 any child elements of the `<Game>` component have been styled to overlay your Game correctly. 
 
-## installation
+## Installation
 
-*Vanilla Install*
+#### Vanilla Install
 `npm i react react-dom phaser reactified-phaser`
 
-*Create React App*
+####Create React App
 `npx create-react-app your-game --template typescript && cd your-game && npm i reactified-phaser`
 
 ## Usage
