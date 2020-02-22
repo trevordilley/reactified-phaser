@@ -10,7 +10,7 @@ any child elements of the `<Game>` component have been styled to overlay your Ga
 #### Vanilla Install
 `npm i react react-dom phaser reactified-phaser`
 
-####Create React App
+#### Create React App
 `npx create-react-app your-game --template typescript && cd your-game && npm i reactified-phaser`
 
 ## Usage
