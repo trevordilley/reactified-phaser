@@ -42,7 +42,6 @@ var GameGui = function (props) {
         } },
         React.createElement("div", { id: hostElementId + "-gui", style: {
                 pointerEvents: "auto",
-                border: "1px solid"
             } }, children)));
 };
 var GameContainer = (function (_super) {
