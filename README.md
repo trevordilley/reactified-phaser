@@ -11,7 +11,7 @@ any child elements of the `<Game>` component have been styled to overlay your Ga
 `npm i react react-dom phaser reactified-phaser`
 
 #### Create React App
-`npx create-react-app your-game --template typescript && cd your-game && npm i reactified-phaser`
+`npx create-react-app your-game --template typescript && cd your-game && npm i reactified-phaser phaser`
 
 ## Usage
 
@@ -26,7 +26,7 @@ function App() {
   );
 }
 
-const ExampleGame = observer(() =>
+const ExampleGame = () =>
     <Game config={config}>
         {/*Children of the Game component is the game's GUI.*/}
         {/*Stuff here is styled to fit within the game canvas dimensions.*/}
@@ -40,9 +40,13 @@ const ExampleGame = observer(() =>
             Score: {scoreStore.score}
         </div>
     </Game>
-)
 
 ```
+
+## State Management
+You do need to bridge between Phaser and React somehow. Personally I've had a lot of success using [MobX](https://mobx.js.org/README.html)
+but there are many other options as well. I'm sure it's possible to use vanilla React, RxJs, etc to manage state as well.
+The examples below both use MobX stores.
 
 ## Example Games
 The Phaser 3 tutorial game has been implemented using `typescript` and `reactified-phaser` here:
