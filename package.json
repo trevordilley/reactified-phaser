@@ -1,6 +1,6 @@
 {
     "name": "reactified-phaser",
-    "version": "0.1.7-alpha1",
+    "version": "0.1.8",
     "description": "A simple way to add a Phaser game to your React app!",
     "homepage": "https://github.com/trevordilley",
     "keywords": [
